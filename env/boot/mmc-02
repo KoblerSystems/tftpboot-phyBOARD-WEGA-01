@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "$1" = menu ]; then
+	boot-menu-add-entry "$0" "kernel & rootfs on SD card, bootloader in NAND"
+	exit
+fi
+
+path="/mnt/mmc"
+
+bootargs-ip
+bootargs-display
+
+global.bootm.image=${path}/linuximage
+#global.bootm.oftree=${path}/oftree
+global.linux.bootargs.dyn.root="root=/dev/mmcblk0p2 rootfstype=ext3 rootwait"
