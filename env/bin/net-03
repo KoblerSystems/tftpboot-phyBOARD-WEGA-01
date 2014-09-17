@@ -1,0 +1,21 @@
+#!/bin/sh
+
+path="/mnt/tftp"
+
+echo
+echo "copy ${path}/pcm051/env/video/display to /env/video/display"
+cp ${path}/pcm051/env/video/display /env/video/display
+
+global.bootm.image="${path}/uImage-${global.hostname}"
+
+# define nfsroot
+nfsroot="/my-nfs-root"
+
+. /env/bin/bootargs-ip
+bootargs-display
+
+
+global.linux.bootargs.dyn.root="root=/dev/nfs nfsroot=$serverip:$nfsroot,v3,tcp rootwait"
+
+echo "global.linux.bootargs.dyn.root=$global.linux.bootargs.dyn.root"
+echo

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ "$1" = menu ]; then
+	boot-menu-add-entry "$0" "network script (tftp, nfs)"
+	exit
+fi
+
+path="/mnt/tftp"
+
+echo "execute remote script ${path}/${global.hostname}/env/bin/net-03"
+
+
+echo "############### start contents of file net-03 ################"
+cat ${path}/${global.hostname}/env/bin/net-03
+echo "############### end contents of file net-03 ###############"
+
+. ${path}/${global.hostname}/env/bin/net-03
+
+
