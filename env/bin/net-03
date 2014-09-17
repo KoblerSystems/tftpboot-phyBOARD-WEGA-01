@@ -12,7 +12,7 @@ global.bootm.image="${path}/uImage-${global.hostname}"
 nfsroot="/my-nfs-root"
 
 . /env/bin/bootargs-ip
-bootargs-display
+. /env/bin/bootargs-display
 
 
 global.linux.bootargs.dyn.root="root=/dev/nfs nfsroot=$serverip:$nfsroot,v3,tcp rootwait"
