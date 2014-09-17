@@ -2,9 +2,9 @@
 
 path="/mnt/tftp"
 
-echo
-echo "copy ${path}/pcm051/env/video/display to /env/video/display"
-cp ${path}/pcm051/env/video/display /env/video/display
+#echo
+#echo "copy ${path}/${global.hostname}/env/video/display to /env/video/display"
+#cp ${path}/${global.hostname}/env/video/display /env/video/display
 
 global.bootm.image="${path}/uImage-${global.hostname}"
 
